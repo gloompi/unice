@@ -1,4 +1,6 @@
 <header>
   <a href="/">Logo</a>
-  <a href="/logout" class="btn btn-secondary">Logout</a>
+  <% if (isAuth) { %>
+    <a href="/logout" class="btn btn-secondary">Logout</a>
+  <% } %>
 </header>
