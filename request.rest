@@ -1,0 +1,11 @@
+GET http://localhost:8080
+
+###
+
+POST http://localhost:8080/auth/login
+Content-Type: application/json
+
+{
+  "email": "gloompique@yandex.ru",
+  "password": "123123123"
+}

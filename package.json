@@ -3,10 +3,39 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon ./src/index.js"
+  },
   "dependencies": {
     "@admin-bro/express": "^3.1.0",
+    "@admin-bro/mongoose": "^1.1.0",
     "admin-bro": "^4.0.1",
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.0",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.5",
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
     "express": "^4.17.1",
-    "express-formidable": "^1.2.0"
+    "express-ejs-layouts": "^2.5.1",
+    "express-formidable": "^1.2.0",
+    "express-session": "^1.17.2",
+    "mongoose": "^5.12.14",
+    "passport": "^0.4.1",
+    "passport-google-oauth20": "^2.0.0",
+    "passport-local": "^1.0.0",
+    "tslib": "^2.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "imports": {
+    "@root/*": "./*",
+    "@server/*": "./server/*",
+    "@admin/*": "./server/admin/*",
+    "@models/*": "./server/models/*",
+    "@routes/*": "./server/routes/*",
+    "@strategies/*": "./server/strategies/*"
   }
 }
