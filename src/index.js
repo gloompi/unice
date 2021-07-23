@@ -41,6 +41,7 @@ const run = async () => {
   app.use(express.json())
   // global vars
   app.use((req, res, next) => {
+    console.log('----REQ----', req.method, req.url)
     res.locals.isAuth = req.isAuthenticated()
     res.locals.success_msg = req.flash('success_msg')
     res.locals.error_msg = req.flash('error_msg')
@@ -52,7 +53,7 @@ const run = async () => {
 
   strategies(passport)
 
-  app.listen(conf.port, () => console.log(`AdminBro is under localhost:${conf.port}/admin`))
+  app.listen(conf.port, () => console.log(`Running app on localhost:${conf.port}`))
 }
 
 run()
