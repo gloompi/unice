@@ -116,9 +116,9 @@ a:visited {
 }
 @font-face {
   font-family: iconfont;
-  src: url(../fonts/iconfont.woff2) format("woff2"),
-    url(../fonts/iconfont.woff) format("woff"),
-    url(../fonts/iconfont.ttf) format("truetype");
+  src: url(/fonts/iconfont.woff2) format("woff2"),
+    url(/fonts/iconfont.woff) format("woff"),
+    url(/fonts/iconfont.ttf) format("truetype");
 }
 .iconfont {
   font-family: iconfont !important;
@@ -2327,6 +2327,7 @@ html {
   z-index: 18;
   text-align: center;
   border-bottom: 1px solid #e8e6e6;
+  background-color: #fff;
   margin-top: 30px;
   padding-bottom: 10px;
   font-size: 17px;
@@ -2336,6 +2337,11 @@ html {
   display: inline-block;
   padding: 8px 11px;
   margin-right: 16px;
+}
+.navbar_item:hover .navbar_itemContent-wrapper {
+  height: auto;
+  opacity: 1;
+  background-color: #fff;
 }
 .navbar_item.current .navbar_item-link {
   color: #e5007f;

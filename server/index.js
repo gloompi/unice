@@ -1,4 +1,5 @@
 import express from 'express'
+import compression from 'compression'
 import mongoose from 'mongoose'
 import passport from 'passport'
 import path from 'path'
@@ -39,6 +40,8 @@ const run = async () => {
   // parsers
   app.use(bodyParser.urlencoded({ extended: false }))
   app.use(express.json())
+  // compression
+  app.use(compression())
   // global vars
   app.use((req, res, next) => {
     console.log('----REQ----', req.method, req.url)
