@@ -5,7 +5,7 @@ import { User } from '../models/user.js'
 const strategyHandler = (email, password, done) => {
   User.findOne({ email }, async (err, user) => {
     if (err) return done(err)
-    if (!user) return done(null, false, { message: 'Incorrect username.' })
+    if (!user) return done(null, false, { message: 'Incorrect email.' })
     if (!user.encryptedPassword) return done(null, false, { message: 'Please set the password first' })
 
     const match = await bcrypt.compare(password, user.encryptedPassword)

@@ -15,6 +15,8 @@ const {
   SECRET,
   GOOGLE_CLIENT_ID,
   GOOGLE_SECRET,
+  FACEBOOK_ID,
+  FACEBOOK_SECRET,
 } = process.env || {}
 
 export default {
@@ -24,4 +26,6 @@ export default {
   secret: SECRET,
   googleId: GOOGLE_CLIENT_ID,
   googleSecret: GOOGLE_SECRET,
+  facebookId: FACEBOOK_ID,
+  facebookSecret: FACEBOOK_SECRET,
 }

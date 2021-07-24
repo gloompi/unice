@@ -1,18 +1,18 @@
-import GoogleStrategy from 'passport-google-oauth20'
+import FacebookStrategy from 'passport-facebook'
 
 import conf from '../../config.js'
 import { User } from '../models/user.js'
 
 const strategyHandler = async (accessToken, refreshToken, profile = {}, done) => {
   const {
-    emails: [{ value: email }] = [],
+    emails: [{ value: email = '' } = {}] = [],
     name: { familyName, givenName } = {},
     id,
   } = profile
 
   let user = await User.findOne({ id })
 
-  if (!user) {
+  if (!user && email !== '') {
     user = await User.findOne({ email })
   }
 
@@ -32,10 +32,11 @@ const strategyHandler = async (accessToken, refreshToken, profile = {}, done) =>
 }
 
 export default (passport) => {
-  const localStrategy = new GoogleStrategy.Strategy({
-    clientID: conf.googleId,
-    clientSecret: conf.googleSecret,
-    callbackURL: `${conf.appUrl}/auth/google/callback`
+  const localStrategy = new FacebookStrategy.Strategy({
+    clientID: conf.facebookId,
+    clientSecret: conf.facebookSecret,
+    callbackURL: `${conf.appUrl}/auth/facebook/callback`,
+    profileFields: ['first_name', 'last_name', 'email', 'birthday']
   }, strategyHandler)
 
   passport.use(localStrategy)

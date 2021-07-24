@@ -1,0 +1,60 @@
+<div class="header-newsline_track-order">
+  <a
+    href="javascript:"
+    class="
+      header-newsline_track-toggle header-newsline_dropdown-toggle
+    "
+    title="track order"
+    >track order</a
+  >
+  <div
+    class="header-newsline_dropdown-menu header-newsline_track-form"
+    style="display: none"
+  >
+    <div class="track-order_text">
+      <p>
+        Want to check the status of your order? You can put in your
+        order number and click search to find the tracking information
+        or login your account to check the detail information.
+      </p>
+    </div>
+    <form
+      class="track-order_form"
+      id="track-order-form"
+      action
+      method="POST"
+    >
+      <input
+        name="form_key"
+        type="hidden"
+        value="<esi:include src='http://www.unice.com/turpentine/esi/getFormKey/ttl/5184000/method/esi/scope/global/access/private/' />"
+      />
+      <label class="a-bold">Order No.<em>*</em></label>
+      <select class="track-order_selType" name="track_type">
+        <option value="1">Order ID #&nbsp;</option>
+        <option value="2">Shipment #</option>
+      </select>
+      <div>
+        <label style="display: none" for="track-order_input"
+          >track_num</label
+        >
+        <input
+          class="track-order_input"
+          type="text"
+          id="track-order_input"
+          name="track_num"
+        />
+      </div>
+      <div class="buttons-set a-center">
+        <button
+          class="track-order_submit button"
+          type="button"
+          title="  Track Order"
+        >
+          Track Order
+        </button>
+      </div>
+    </form>
+    <div class="track-order_result"></div>
+  </div>
+</div>

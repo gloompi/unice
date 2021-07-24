@@ -8,7 +8,7 @@ import bodyParser from 'body-parser'
 import expressLayouts from 'express-ejs-layouts'
 
 import conf, { __dirname } from '../config.js'
-import router from './routes/index.js'
+import router from './routes.js'
 import strategies from './strategies/index.js'
 import { adminBro, router as adminRouter } from './admin/index.js'
 
@@ -19,7 +19,7 @@ const run = async () => {
   // EJS
   app.use(expressLayouts)
   app.set('view engine', 'ejs')
-  app.set('views', path.join(__dirname, '/src/templates'));
+  app.set('views', path.join(__dirname, '/src/views'))
   // admin
   app.use(adminBro.options.rootPath, adminRouter)
   // statics
