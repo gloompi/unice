@@ -19,7 +19,7 @@ const run = async () => {
   // EJS
   app.use(expressLayouts)
   app.set('view engine', 'ejs')
-  app.set('views', path.join(__dirname, '/src/views'))
+  app.set('views', path.join(__dirname, '/server/views'))
   // admin
   app.use(adminBro.options.rootPath, adminRouter)
   // statics
