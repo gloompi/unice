@@ -5,11 +5,14 @@ import { register, showRegistration } from './controllers/auth/registration.cont
 import { googleLogin, googleCallback } from './controllers/auth/google.controller.js'
 import { facebookLogin, facebookCallback } from './controllers/auth/facebook.controller.js'
 import { showProfile } from './controllers/pages/profile.controller.js'
+import { showHome } from './controllers/pages/home.controller.js'
+import { showProduct } from './controllers/pages/product.controller.js'
 
 const router = express.Router()
 
-router.get('/', (_, res) => { res.render('index') })
+router.get('/', showHome)
 router.get('/profile', ensureAuth, showProfile)
+router.get('/product/:id', showProduct)
 router.get('/auth/login', showLogin)
 router.get('/auth/register', showRegistration)
 router.get('/auth/logout', logout)

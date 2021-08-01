@@ -1,18 +1,26 @@
 import mongoose from 'mongoose'
 
 const productSchema = mongoose.Schema({
-  _id: mongoose.Schema.Types.ObjectId,
   name: String,
   price: Number,
   description: String,
   image: String,
+  size: [String],
+  density: [String],
+  hairPart: [String],
+  length: [Number]
 })
 
 const categorySchema = mongoose.Schema({
-  _id: mongoose.Schema.Types.ObjectId,
   name: String,
   product: { type: mongoose.Schema.Types.ObjectId, ref: 'Product' },
 })
 
+const categoryGroupSchema = mongoose.Schema({
+  name: String,
+  category: { type: mongoose.Schema.Types.ObjectId, ref: 'Category' },
+})
+
 export const Product = mongoose.model('Product', productSchema)
 export const Category = mongoose.model('Category', categorySchema)
+export const CategoryGroup = mongoose.model('CategoryGroup', categoryGroupSchema)

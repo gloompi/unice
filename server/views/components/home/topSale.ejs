@@ -1,0 +1,12 @@
+<div class="topsale wrapper">
+  <div class="topsale-tit">top sale</div>
+  <div class="swiper-container">
+    <ul class="slick-slider swiper-wrapper">
+      <% products.forEach((product) => { %>
+        <%- include('./product', { product }) %>
+      <% }) %>
+    </ul>
+  </div>
+  <div class="slick-slider-button-prev swiper-button-prev iconfont icon-pagination-prev"></div>
+  <div class="slick-slider-button-next swiper-button-next iconfont icon-pagination-next"></div>
+</div>

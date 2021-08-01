@@ -9,7 +9,7 @@ import { __dirname } from '../config.js'
 const sass = gulpSass(sassInstance)
 
 export const buildStyles = () => (
-  gulp.src(path.resolve(__dirname, 'src/**/*.scss'))
+  gulp.src(path.resolve(__dirname, 'src/styles.scss'))
     .pipe(sass().on('error', sass.logError))
     .pipe(cleanCSS())
     .pipe(gulp.dest(path.resolve(__dirname, 'public')))

@@ -1,0 +1,14 @@
+<div class="banner">
+  <div class="banner-container">
+    <ul class="swiper-wrapper banner-slider">
+      <% banners.forEach((banner) => { %>
+        <%- include('./banner-item', { banner }) %>
+      <% }) %>
+    </ul>
+
+    <div class="swiper-pagination"></div>
+
+    <div class="swiper-button-prev banner-slider-prev iconfont icon-pagination-prev"></div>
+    <div class="swiper-button-next banner-slider-next iconfont icon-pagination-next"></div>
+  </div>
+</div>

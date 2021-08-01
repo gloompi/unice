@@ -2,12 +2,24 @@ import AdminBro from 'admin-bro'
 import AdminBroExpress from '@admin-bro/express'
 import AdminBroMongoose from '@admin-bro/mongoose'
 import bcrypt from 'bcrypt'
+import { Banner } from '../models/banner.js'
 import { User } from '../models/user.js'
-import { Category, Product } from '../models/product.js'
+import { Category, CategoryGroup, Product } from '../models/product.js'
 
 AdminBro.registerAdapter(AdminBroMongoose)
 
 const isAdmin = ({ currentAdmin }) => currentAdmin && currentAdmin.role === 'admin'
+
+const banner = {
+  resource: Banner,
+  options: {
+    actions: {
+      edit: { isAccessible: isAdmin },
+      delete: { isAccessible: isAdmin },
+      new: { isAccessible: isAdmin },
+    },
+  },
+}
 
 const product = {
   resource: Product,
@@ -16,12 +28,23 @@ const product = {
       edit: { isAccessible: isAdmin },
       delete: { isAccessible: isAdmin },
       new: { isAccessible: isAdmin },
-    }
- }
+    },
+  },
 }
 
 const category = {
   resource: Category,
+  options: {
+    actions: {
+      edit: { isAccessible: isAdmin },
+      delete: { isAccessible: isAdmin },
+      new: { isAccessible: isAdmin },
+    }
+  }
+}
+
+const categoryGroup = {
+  resource: CategoryGroup,
   options: {
     actions: {
       edit: { isAccessible: isAdmin },
@@ -76,8 +99,12 @@ const user = {
 }
 
 const options = {
-  resources: [product, category, user],
+  resources: [banner, product, category, categoryGroup, user],
   rootPath: '/admin',
+  branding: {
+    companyName: 'Unice',
+    logo: 'https://www.unice.com/skin/frontend/longqi/pc/images/unice-logo.png',
+  }
 }
 
 export const adminBro = new AdminBro(options)

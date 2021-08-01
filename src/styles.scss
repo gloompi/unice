@@ -2385,11 +2385,7 @@ html {
   box-sizing: border-box;
   overflow: hidden;
   color: #000;
-  -ms-transition: all 1s ease;
-  -moz-transition: all 1s ease;
-  -webkit-transition: all 1s ease;
-  -o-transition: all 1s ease;
-  transition: all 1s ease;
+  transition: opacity 1s ease;
   opacity: 0;
 }
 .navbar_itemContent-col {
@@ -5164,3 +5160,8 @@ img.hover-shadow {
   background: -moz-linear-gradient(bottom right, #e20a96, #eb2d79);
   background: linear-gradient(to bottom right, #e20a96, #eb2d79);
 }
+
+@import "./scss/header.scss";
+@import "./scss/home.scss";
+@import "./scss/product.scss";
+
