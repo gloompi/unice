@@ -5,8 +5,10 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "start": "concurrently --kill-others 'yarn server' 'yarn gulp'",
+    "start": "concurrently --kill-others 'yarn server-prod' 'yarn gulp'",
+    "dev": "concurrently --kill-others 'yarn server' 'yarn gulp'",
     "server": "nodemon ./server/index.js",
+    "server-prod": "node ./server/index.js",
     "gulp": "gulp"
   },
   "dependencies": {

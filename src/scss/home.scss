@@ -1,3 +1,18 @@
 .preview-item {
   width: 200px;
 }
+
+.swiper-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slick-active {
+  .swiper-pagination-switch {
+    opacity: 1;
+    background: #fb3674;
+    width: 16px;
+    border-radius: 50px;
+  }
+}
