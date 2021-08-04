@@ -1,17 +1,18 @@
 import { Product } from '../../models/product.js'
 import { Banner } from '../../models/banner.js'
 
+const promises = ({ query: { page = 1, limit = 10 } }) => [
+  Banner.find().exec(),
+  Product.find()
+    .limit(limit * 1)
+    .skip((page - 1) * limit)
+    .exec(),
+  Product.countDocuments(),
+]
+
 export const showHome = async (req, res) => {
-  const { page = 1, limit = 10 } = req.query
-
   try {
-    const banners = await Banner.find().exec()
-    const products = await Product.find()
-      .limit(limit * 1)
-      .skip((page - 1) * limit)
-      .exec()
-
-    const count = await Product.countDocuments()
+    const [banners, products, count] = await Promise.all(promises(req))
 
     res.render('index', {
       banners,
