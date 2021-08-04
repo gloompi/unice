@@ -13,12 +13,12 @@ const productSchema = mongoose.Schema({
 
 const categorySchema = mongoose.Schema({
   name: String,
-  product: { type: mongoose.Schema.Types.ObjectId, ref: 'Product' },
+  product: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Product' }],
 })
 
 const categoryGroupSchema = mongoose.Schema({
   name: String,
-  category: { type: mongoose.Schema.Types.ObjectId, ref: 'Category' },
+  category: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Category' }],
 })
 
 export const Product = mongoose.model('Product', productSchema)
