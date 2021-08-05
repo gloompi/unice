@@ -54,6 +54,12 @@ const run = async () => {
   // routes
   app.use(router)
 
+  // Handle 404 - Keep this as a last route
+  app.use((_, res) => {
+    res.status(404)
+    res.render('not-found')
+  });
+
   strategies(passport)
 
   app.listen(conf.port, () => console.log(`Running app on localhost:${conf.port}`))

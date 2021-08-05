@@ -45,6 +45,6 @@ export const showHome = async (req, res) => {
     })
   } catch (err) {
     console.error(err)
-    res.render('index', { err })
+    res.redirect('/404')
   }
 }

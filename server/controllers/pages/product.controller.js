@@ -4,12 +4,17 @@ export const showProduct = async (req, res) => {
   const { id } = req.params
 
   try {
-    const product = await Product.findOne({ id })
-
-    res.render('product', {
-      product,
-    })
+    const product = await Product.findOne({ _id: id })
+    console.log('PRODUCT', product)
+    if (product === null) {
+      res.redirect('/404')
+    } else {
+      res.render('product', {
+        stylePath: '/product.css',
+        product,
+      })
+    }
   } catch (err) {
-    res.render('not-found', { err })
+    res.redirect('/404')
   }
 }

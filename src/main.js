@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Modules needed for certain pages
   const modules = {
     '/auth': 'auth.js',
+    '/product': 'product.js',
   }
 
   const loadModule = async (fileName) => {

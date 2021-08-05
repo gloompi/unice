@@ -10,6 +10,8 @@ import { showProduct } from './controllers/pages/product.controller.js'
 
 const router = express.Router()
 
+router.get('/404', (req, res) => res.render('not-found'))
+
 router.get('/', showHome)
 router.get('/profile', ensureAuth, showProfile)
 router.get('/product/:id', showProduct)
