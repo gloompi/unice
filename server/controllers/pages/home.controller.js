@@ -1,22 +1,17 @@
-import { Category, Product } from '../../models/product.js'
+import { Brand, Product } from '../../models/product.js'
 import { Banner } from '../../models/banner.js'
 
 const CATEGORY_PRODUCTS_LIMIT = 8
 
-const getCategoryProducts = (name) => (
-  Category.findOne({ name })
+const promises = ({ query: { page = 1, limit = 10 } }) => [
+  Banner.find().exec(),
+  Brand.find()
+    .limit(3)
     .populate({
       path: 'product',
       limit: CATEGORY_PRODUCTS_LIMIT,
     })
-    .exec()
-)
-
-const promises = ({ query: { page = 1, limit = 10 } }) => [
-  getCategoryProducts('Curly'),
-  getCategoryProducts('Body'),
-  getCategoryProducts('Betty'),
-  Banner.find().exec(),
+    .exec(),
   Product.find()
     .limit(limit * 1)
     .skip((page - 1) * limit)
@@ -27,19 +22,15 @@ const promises = ({ query: { page = 1, limit = 10 } }) => [
 export const showHome = async (req, res) => {
   try {
     const [
-      curlyProducts,
-      bodyProducts,
-      straightProducts,
       banners,
+      brands,
       products,
       count,
     ] = await Promise.all(promises(req))
 
     res.render('index', {
-      curlyProducts: curlyProducts?.product || [],
-      bodyProducts: bodyProducts?.product || [],
-      straightProducts: straightProducts?.product || [],
       banners,
+      brands,
       products,
       count,
     })

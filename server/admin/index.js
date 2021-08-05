@@ -4,7 +4,7 @@ import AdminBroMongoose from '@admin-bro/mongoose'
 import bcrypt from 'bcrypt'
 import { Banner } from '../models/banner.js'
 import { User } from '../models/user.js'
-import { Category, CategoryGroup, Product } from '../models/product.js'
+import { Brand, Category, CategoryGroup, Product } from '../models/product.js'
 
 AdminBro.registerAdapter(AdminBroMongoose)
 
@@ -12,6 +12,17 @@ const isAdmin = ({ currentAdmin }) => currentAdmin && currentAdmin.role === 'adm
 
 const banner = {
   resource: Banner,
+  options: {
+    actions: {
+      edit: { isAccessible: isAdmin },
+      delete: { isAccessible: isAdmin },
+      new: { isAccessible: isAdmin },
+    },
+  },
+}
+
+const brand = {
+  resource: Brand,
   options: {
     actions: {
       edit: { isAccessible: isAdmin },
@@ -99,7 +110,7 @@ const user = {
 }
 
 const options = {
-  resources: [banner, product, category, categoryGroup, user],
+  resources: [banner, brand, product, category, categoryGroup, user],
   rootPath: '/admin',
   branding: {
     companyName: 'Unice',

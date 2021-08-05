@@ -62,378 +62,132 @@
     </div>
   </div>
 </div>
-<div class="pro-show bettyou clearfix wrapper">
-  <div class="pro-show_top">
-    <a
-      class="pro-show_title img-block"
-      href="https://www.unice.com/wig-1.html"
-    >
-      <img
-        alt="UNice Bettyou Series: 100% Human Hair Wigs"
-        src="images/BETTYOU.jpg"
-      />
-    </a>
-    <video
-      class="pro-show_video lozad"
-      controls="controls"
-      data-mp4="true"
-      poster="https://xcdn.unice.com/media/ads/default/WIGCOVER.jpg"
-    >
-      <source
-        data-src="https://vcdn.unice.com/zhutuvideo/169wigvideo-01.mp4"
-        type="video/mp4"
-      />
-    </video>
-  </div>
-  <div class="pro-show_left">
-    <a
-      class="pro-show_head bettyou"
-      href="https://www.unice.com/wig-1.html"
-      title="Be your own stylist, Be Different!"
-    >
-      <h2>bettyou</h2>
-      <span>Be your own stylist, Be Different!</span>
-    </a>
-    <div class="pro-show_brand">
-      Delivers styles without compromise to complete the perfect you.
-    </div>
-    <div class="pro-show_classification">
-      <h4 class="pro-show_classification-tit">main classification</h4>
-      <div class="pro-show_classification-list">
+<% if (typeof brands !== 'undefined') { %>
+  <% brands.forEach((brand) => { %>
+    <div class="pro-show bettyou clearfix wrapper">
+      <div class="pro-show_top">
         <a
-          class="pro-show_classification-item"
-          href="https://www.unice.com/wig-1/bob-wig.html"
-          title="Bob Wig"
+          class="pro-show_title img-block"
+          href="/brand/<%= brand.name %>"
         >
           <img
-            class="lozad"
-            data-src="https://www.unice.com/skin/frontend/longqi/pc/images/home/body1.png"
-            src="images/lozad-home-icon.jpg"
-            alt="Bob Wig"
+            alt="<%= brand.name %>"
+            src="<%= brand.topImg %>"
           />
-          <span>Bob Wig</span>
         </a>
-        <a
-          class="pro-show_classification-item"
-          href="https://www.unice.com/wig-1/body-wave-wigs.html"
-          title="Body Wave"
+        <video
+          class="pro-show_video lozad"
+          controls="controls"
+          data-mp4="true"
+          poster="https://xcdn.unice.com/media/ads/default/WIGCOVER.jpg"
         >
-          <img
-            class="lozad"
-            data-src="https://www.unice.com/skin/frontend/longqi/pc/images/home/body2.png"
-            src="images/lozad-home-icon.jpg"
-            alt="Body Wave"
+          <source
+            data-src="https://vcdn.unice.com/zhutuvideo/169wigvideo-01.mp4"
+            type="video/mp4"
           />
-          <span>Body Wave</span>
-        </a>
+        </video>
+      </div>
+      <div class="pro-show_left">
         <a
-          class="pro-show_classification-item"
-          href="https://www.unice.com/wig-1/curly-hair-wigs.html"
-          title="Curly Hair"
+          class="pro-show_head bettyou"
+          href="/brand/<%= brand.name %>"
+          title="Be your own stylist, Be Different!"
         >
-          <img
-            class="lozad"
-            data-src="https://www.unice.com/skin/frontend/longqi/pc/images/home/curly.png"
-            src="images/lozad-home-icon.jpg"
-            alt="Curly Hair"
-          />
-          <span>Curly Hair</span>
+          <img src="<%= brand.logo %>" alt="<%= brand.name %>">
         </a>
-        <a
-          class="pro-show_classification-item"
-          href="https://www.unice.com/wig-1/kinky-hair-wig.html"
-          title="kinky Curly"
-        >
-          <img class="lozad"
-          data-src="https://www.unice.com/skin/frontend/longqi/pc/images/home/kinky.png"
-          src="images/lozad-home-icon.jpg" alt="kinky Curly" ">
-          <span>kinky Curly</span>
-        </a>
-        <a
-          class="pro-show_classification-item"
-          href="https://www.unice.com/wig-1/water-wave-hair-wigs.html"
-          title="Water Wave"
-        >
-          <img
-            class="lozad"
-            data-src="https://www.unice.com/skin/frontend/longqi/pc/images/home/kinky.png"
-            src="images/lozad-home-icon.jpg"
-            alt="Water Wave"
-          />
-          <span>Water Wave</span>
-        </a>
-        <a
-          class="pro-show_classification-item"
-          href="https://www.unice.com/wig-1/straight-hair-wigs.html"
-          title="Straight Hair"
-        >
-          <img
-            class="lozad"
-            data-src="https://www.unice.com/skin/frontend/longqi/pc/images/home/straight.png"
-            src="images/lozad-home-icon.jpg"
-            alt="Straight Hair"
-          />
-          <span>Straight Hair</span>
-        </a>
+        <div class="pro-show_brand">
+          <%= brand.description %>
+        </div>
+        <div class="pro-show_classification">
+          <h4 class="pro-show_classification-tit">main classification</h4>
+          <div class="pro-show_classification-list">
+            <a
+              class="pro-show_classification-item"
+              href="https://www.unice.com/wig-1/bob-wig.html"
+              title="Bob Wig"
+            >
+              <img
+                class="lozad"
+                data-src="https://www.unice.com/skin/frontend/longqi/pc/images/home/body1.png"
+                src="images/lozad-home-icon.jpg"
+                alt="Bob Wig"
+              />
+              <span>Bob Wig</span>
+            </a>
+            <a
+              class="pro-show_classification-item"
+              href="https://www.unice.com/wig-1/body-wave-wigs.html"
+              title="Body Wave"
+            >
+              <img
+                class="lozad"
+                data-src="https://www.unice.com/skin/frontend/longqi/pc/images/home/body2.png"
+                src="images/lozad-home-icon.jpg"
+                alt="Body Wave"
+              />
+              <span>Body Wave</span>
+            </a>
+            <a
+              class="pro-show_classification-item"
+              href="https://www.unice.com/wig-1/curly-hair-wigs.html"
+              title="Curly Hair"
+            >
+              <img
+                class="lozad"
+                data-src="https://www.unice.com/skin/frontend/longqi/pc/images/home/curly.png"
+                src="images/lozad-home-icon.jpg"
+                alt="Curly Hair"
+              />
+              <span>Curly Hair</span>
+            </a>
+            <a
+              class="pro-show_classification-item"
+              href="https://www.unice.com/wig-1/kinky-hair-wig.html"
+              title="kinky Curly"
+            >
+              <img class="lozad"
+              data-src="https://www.unice.com/skin/frontend/longqi/pc/images/home/kinky.png"
+              src="images/lozad-home-icon.jpg" alt="kinky Curly" ">
+              <span>kinky Curly</span>
+            </a>
+            <a
+              class="pro-show_classification-item"
+              href="https://www.unice.com/wig-1/water-wave-hair-wigs.html"
+              title="Water Wave"
+            >
+              <img
+                class="lozad"
+                data-src="https://www.unice.com/skin/frontend/longqi/pc/images/home/kinky.png"
+                src="images/lozad-home-icon.jpg"
+                alt="Water Wave"
+              />
+              <span>Water Wave</span>
+            </a>
+            <a
+              class="pro-show_classification-item"
+              href="https://www.unice.com/wig-1/straight-hair-wigs.html"
+              title="Straight Hair"
+            >
+              <img
+                class="lozad"
+                data-src="https://www.unice.com/skin/frontend/longqi/pc/images/home/straight.png"
+                src="images/lozad-home-icon.jpg"
+                alt="Straight Hair"
+              />
+              <span>Straight Hair</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="pro-show_right clearfix">
+        <% brand.product.forEach((product) => { %>
+          <%- include('./components/home/product', { product }) %>
+        <% }) %>
       </div>
     </div>
-  </div>
-  <div class="pro-show_right clearfix">
-    <% curlyProducts.forEach((product) => { %>
-      <%- include('./components/home/product', { product }) %>
-    <% }) %>
-  </div>
-</div>
+  <% }) %>
+<% } %>
 
-<div class="pro-show icenu clearfix wrapper">
-  <div class="pro-show_top">
-    <a
-      class="pro-show_title img-block"
-      href="https://www.unice.com/icenu-hair.html"
-    >
-      <img alt="Icenu Hair" src="images/ICENU.jpg" />
-    </a>
-    <video
-      class="pro-show_video lozad"
-      controls="controls"
-      data-mp4="true"
-      poster="https://xcdn.unice.com/media/ads/default/videocover.jpg"
-    >
-      <source
-        data-src="https://vcdn.unice.com/zhutuvideo/169weftvideo-01.mp4"
-        type="video/mp4"
-      />
-    </video>
-  </div>
-  <div class="pro-show_left">
-    <a
-      class="pro-show_head icenu"
-      href="https://www.unice.com/icenu-hair.html"
-      title="Be your own stylist, Be Different!"
-    >
-      <h2>Icenu</h2>
-      <span>Be your own stylist, Be Different!</span>
-    </a>
-    <div class="pro-show_brand">
-      Don’t settle for ordinary, be extraordinary fashionable
-    </div>
-    <div class="pro-show_classification">
-      <h4 class="pro-show_classification-tit">main classification</h4>
-      <div class="pro-show_classification-list">
-        <a
-          class="pro-show_classification-item"
-          href="https://www.unice.com/icenu-hair/body-wave.html"
-          title="Body wave"
-        >
-          <img
-            class="lozad"
-            data-src="https://www.unice.com/skin/frontend/longqi/pc/images/home/icenu-sort1.png"
-            src="images/lozad-home-icon.jpg"
-            alt="Body wave"
-          />
-          <span>Body wave</span>
-        </a>
-        <a
-          class="pro-show_classification-item"
-          href="https://www.unice.com/icenu-hair/straight-hair.html"
-          title="straight hair"
-        >
-          <img
-            class="lozad"
-            data-src="https://www.unice.com/skin/frontend/longqi/pc/images/home/icenu-sort2.png"
-            src="images/lozad-home-icon.jpg"
-            alt="straight hair"
-          />
-          <span>straight hair</span>
-        </a>
-        <a
-          class="pro-show_classification-item"
-          href="https://www.unice.com/icenu-hair/curly-hair.html"
-          title="Curly Hair"
-        >
-          <img
-            class="lozad"
-            data-src="https://www.unice.com/skin/frontend/longqi/pc/images/home/icenu-sort3.png"
-            src="images/lozad-home-icon.jpg"
-            alt="Curly Hair"
-          />
-          <span>Curly Hair</span>
-        </a>
-        <a
-          class="pro-show_classification-item"
-          href="https://www.unice.com/icenu-hair/deep-wave.html"
-          title="Deep wave"
-        >
-          <img
-            class="lozad"
-            data-src="https://www.unice.com/skin/frontend/longqi/pc/images/home/icenu-sort4.png"
-            src="images/lozad-home-icon.jpg"
-            alt="Deep wave"
-          />
-          <span>Deep wave</span>
-        </a>
-        <a
-          class="pro-show_classification-item"
-          href="https://www.unice.com/icenu-hair/loose-wave.html"
-          title="Loose wave"
-        >
-          <img
-            class="lozad"
-            data-src="https://www.unice.com/skin/frontend/longqi/pc/images/home/icenu-sort5.png"
-            src="images/lozad-home-icon.jpg"
-            alt="Loose wave"
-          />
-          <span>Loose wave</span>
-        </a>
-        <a
-          class="pro-show_classification-item"
-          href="https://www.unice.com/icenu-hair/natural-wave.html"
-          title="Natural wave"
-        >
-          <img
-            class="lozad"
-            data-src="https://www.unice.com/skin/frontend/longqi/pc/images/home/icenu-sort6.png"
-            src="images/lozad-home-icon.jpg"
-            alt="Natural wave"
-          />
-          <span>Natural wave</span>
-        </a>
-        <a
-          class="pro-show_classification-item"
-          href="https://www.unice.com/icenu-hair/natural-wave.html"
-          title="Water wave"
-        >
-          <img
-            class="lozad"
-            data-src="https://www.unice.com/skin/frontend/longqi/pc/images/home/icenu-sort7.png"
-            src="images/lozad-home-icon.jpg"
-            alt="Water wave"
-          />
-          <span>Water wave</span>
-        </a>
-      </div>
-    </div>
-  </div>
-  <div class="pro-show_right clearfix">
-    <% bodyProducts.forEach((product) => { %>
-      <%- include('./components/home/product', { product }) %>
-    <% }) %>
-  </div>
-</div>
-
-<div class="pro-show kysiss clearfix wrapper">
-  <div class="pro-show_top">
-    <a
-      class="pro-show_title img-block"
-      href="https://www.unice.com/kysiss-hair.html"
-      title="You deserve to evolve for more."
-    >
-      <img
-        alt="UNice Banicoo Series: 10A Remy Virgin Hair"
-        src="images/pc-new.jpg"
-      />
-    </a>
-  </div>
-  <div class="pro-show_left">
-    <a
-      class="pro-show_head kysiss"
-      href="https://www.unice.com/kysiss-hair.html"
-      title="Discover Something New"
-    >
-      <h2>New arrivals</h2>
-      <span>Discover Something New</span>
-    </a>
-    <div class="pro-show_brand">Fabulous With New Chic Hair</div>
-    <div class="pro-show_classification">
-      <h4 class="pro-show_classification-tit">main classification</h4>
-      <div class="pro-show_classification-list">
-        <a
-          class="pro-show_classification-item"
-          href="https://www.unice.com/new-arrive.html?___store=default&texture_wig=540"
-          title="Jerry curly"
-        >
-          <img
-            class="lozad"
-            data-src="https://www.unice.com/skin/frontend/longqi/pc/images/home/1-jc.jpg"
-            src="images/lozad-home-icon.jpg"
-            alt="Jerry curly"
-          />
-          <span>Jerry curly</span>
-        </a>
-        <a
-          class="pro-show_classification-item"
-          href="https://www.unice.com/new-arrive.html?___store=default&texture_wig=538"
-          title="straight hair"
-        >
-          <img
-            class="lozad"
-            data-src="https://www.unice.com/skin/frontend/longqi/pc/images/home/2-body-wave.jpg"
-            src="images/lozad-home-icon.jpg"
-            alt="body wave"
-          />
-          <span>body wave</span>
-        </a>
-        <a
-          class="pro-show_classification-item"
-          href="https://www.unice.com/new-arrive.html?___store=default&texture_wig=752"
-          title="bob wigs"
-        >
-          <img
-            class="lozad"
-            data-src="https://www.unice.com/skin/frontend/longqi/pc/images/home/3-bob.jpg"
-            src="images/lozad-home-icon.jpg"
-            alt="bob wigs"
-          />
-          <span>bob wigs</span>
-        </a>
-        <a
-          class="pro-show_classification-item"
-          href="https://www.unice.com//new-arrive.html?___store=default&texture_wig=644"
-          title="Deep wave"
-        >
-          <img
-            class="lozad"
-            data-src="https://www.unice.com/skin/frontend/longqi/pc/images/home/4-deepwave.jpg"
-            src="images/lozad-home-icon.jpg"
-            alt="Deep wave"
-          />
-          <span>Deep wave</span>
-        </a>
-        <a
-          class="pro-show_classification-item"
-          href="https://www.unice.com/new-arrive.html?___store=default&texture_wig=643"
-          title="water wave"
-        >
-          <img
-            class="lozad"
-            data-src="https://www.unice.com/skin/frontend/longqi/pc/images/home/5-water.jpg"
-            src="images/lozad-home-icon.jpg"
-            alt="water wave"
-          />
-          <span>water wave</span>
-        </a>
-        <a
-          class="pro-show_classification-item"
-          href="https://www.unice.com/new-arrive.html?___store=default&texture_wig=753"
-          title="Natural wave"
-        >
-          <img
-            class="lozad"
-            data-src="https://www.unice.com/skin/frontend/longqi/pc/images/home/6-natural.jpg"
-            src="images/lozad-home-icon.jpg"
-            alt="Natural wave"
-          />
-          <span>Natural wave</span>
-        </a>
-      </div>
-    </div>
-  </div>
-  <div class="pro-show_right clearfix">
-    <% straightProducts.forEach((product) => { %>
-      <%- include('./components/home/product', { product }) %>
-    <% }) %>
-  </div>
-</div>
 <div class="customer-share clearfix">
   <div class="customer-share_title">
     <h3>customer share</h3>
