@@ -1,5 +1,5 @@
 <div class="header-newsline_account">
-<% if (isAuth) { %>
+  <% if (isAuth) { %>
   <div class="header-newsline_dropdown-toggle">
     <span
       class="iconfont icon-user header-newsline_account-icon float-l"
@@ -8,9 +8,7 @@
     <span>&nbsp;/&nbsp;</span>
     <a href="/auth/logout" class="btn btn-secondary">Logout</a>
   </div>
-  <div
-    class="header-newsline_dropdown-menu header-newsline_account-list"
-  >
+  <div class="header-newsline_dropdown-menu header-newsline_account-list">
     <a
       class="header-newsline_account-link"
       href="https://www.unice.com/customer/account/"
@@ -32,12 +30,8 @@
     >
       My Wishlist
     </a>
-    <a
-      class="header-newsline_account-link"
-      href="https://www.unice.com/firecheckout/"
-      title="Checkout"
-    >
-      Checkout
+    <a class="header-newsline_account-link" href="" title="Checkout">
+      Checkouthttps://www.unice.com/firecheckout/
     </a>
     <a
       class="header-newsline_account-link"
@@ -54,13 +48,8 @@
       Log In
     </a>
   </div>
-<% } else { %>
-  <a
-    class="a-hover"
-    rel="nofollow"
-    href="/auth/register"
-    title="sign up"
-  >
+  <% } else { %>
+  <a class="a-hover" rel="nofollow" href="/auth/register" title="sign up">
     Sign Up
   </a>
   <span>&nbsp;/&nbsp;</span>
@@ -72,5 +61,5 @@
   >
     Login
   </a>
-<% } %>
+  <% } %>
 </div>
