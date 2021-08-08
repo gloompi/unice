@@ -2,11 +2,12 @@ import { Brand, Product } from '../../models/product.js'
 import { Banner } from '../../models/banner.js'
 
 const CATEGORY_PRODUCTS_LIMIT = 8
+const BRANDS_LIMIT = 3
 
 const promises = ({ query: { page = 1, limit = 10 } }) => [
   Banner.find().exec(),
   Brand.find()
-    .limit(3)
+    .limit(BRANDS_LIMIT)
     .populate({
       path: 'product',
       limit: CATEGORY_PRODUCTS_LIMIT,

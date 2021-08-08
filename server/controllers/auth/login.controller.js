@@ -1,7 +1,9 @@
 import passport from 'passport'
 
 export const showLogin = (_, res) => {
-  res.render('login')
+  res.render('login', {
+    stylePath: '/auth.css',
+  })
 }
 
 export const login = (req, res, next) => {

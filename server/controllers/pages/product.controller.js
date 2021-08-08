@@ -5,7 +5,7 @@ export const showProduct = async (req, res) => {
 
   try {
     const product = await Product.findOne({ _id: id })
-    console.log('PRODUCT', product)
+
     if (product === null) {
       res.redirect('/404')
     } else {

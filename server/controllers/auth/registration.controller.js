@@ -3,7 +3,9 @@ import bcrypt from 'bcrypt'
 import { User } from '../../models/user.js'
 
 export const showRegistration = (_, res) => {
-  res.render('register')
+  res.render('register', {
+    stylePath: '/auth.css',
+  })
 }
 
 export const register = async (req, res) => {
