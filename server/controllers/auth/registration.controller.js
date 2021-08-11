@@ -2,10 +2,10 @@ import bcrypt from 'bcrypt'
 
 import { User } from '../../models/user.js'
 
+const rendeRegister = (res, props) => res.render('register', { ...props, stylePath: '/auth.css' })
+
 export const showRegistration = (_, res) => {
-  res.render('register', {
-    stylePath: '/auth.css',
-  })
+  rendeRegister(res)
 }
 
 export const register = async (req, res) => {
@@ -26,7 +26,7 @@ export const register = async (req, res) => {
   }
 
   if (errors.length > 0) {
-    res.render('register', {
+    rendeRegister(res, {
       errors,
       firstname,
       lastname,
@@ -40,7 +40,7 @@ export const register = async (req, res) => {
     if (user) {
       errors.push({ msg: 'Email already exists' })
 
-      res.render('register', {
+      rendeRegister(res, {
         errors,
         firstname,
         lastname,
