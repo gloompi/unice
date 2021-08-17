@@ -8,7 +8,7 @@ export const showProduct = async (req, res) => {
       .populate("color")
       .populate("size")
       .populate("density")
-      .populate("hairpart")
+      .populate("hairPart")
       .populate("length")
       .exec();
 

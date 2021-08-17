@@ -1,6 +1,37 @@
 export const run = () => {
   initSlick();
+  productQuantity();
   // productLeft()
+};
+
+const productQuantity = () => {
+  const reduceBtn = document.querySelector(".product-detail_qty-reduce");
+  const addBtn = document.querySelector(".product-detail_qty-add");
+  const qtyInput = document.querySelector(".product-detail_qty-num");
+
+  reduceBtn.addEventListener("click", () => {
+    if (!qtyInput.value && qtyInput.value !== 0) {
+      qtyInput.value = 1;
+    }
+
+    if (qtyInput.value > 1) {
+      qtyInput.value--;
+    }
+  });
+
+  addBtn.addEventListener("click", () => {
+    if (!qtyInput.value && qtyInput.value !== 0) {
+      qtyInput.value = 1;
+    }
+
+    qtyInput.value++;
+  });
+
+  qtyInput.addEventListener("change", (e) => {
+    if (e.target.value < 1) {
+      qtyInput.value = 1;
+    }
+  });
 };
 
 const productLeft = () => {

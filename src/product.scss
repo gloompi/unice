@@ -3636,6 +3636,11 @@ body {
   visibility: hidden;
 }
 
+.proDetail-option_input:checked + .proDetail-option_label {
+  background-color: #000;
+  color: #fff;
+}
+
 .product-detail .proDetail-option_videoTrigger {
   display: inline-block;
   margin-left: 10px;
