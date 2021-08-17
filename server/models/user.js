@@ -1,4 +1,4 @@
-import mongoose from 'mongoose'
+import mongoose from "mongoose";
 
 const UserSchema = new mongoose.Schema({
   firstname: {
@@ -20,13 +20,13 @@ const UserSchema = new mongoose.Schema({
   },
   role: {
     type: String,
-    enum: ['admin', 'member'],
-    default: 'member',
-  }
-})
-
-UserSchema.virtual('name').get(function() {
-  return this.firstname + ' ' + this.lastname;
+    enum: ["admin", "member"],
+    default: "member",
+  },
 });
 
-export const User = mongoose.model('User', UserSchema)
+UserSchema.virtual("name").get(function () {
+  return this.firstname + " " + this.lastname;
+});
+
+export const User = mongoose.model("User", UserSchema);

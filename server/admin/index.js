@@ -1,14 +1,13 @@
-import AdminBro from 'admin-bro'
-import AdminBroExpress from '@admin-bro/express'
-import AdminBroMongoose from '@admin-bro/mongoose'
-import bcrypt from 'bcrypt'
-import { Banner } from '../models/banner.js'
-import { User } from '../models/user.js'
-import { Brand, Category, CategoryGroup, Product } from '../models/product.js'
+import AdminBro from "admin-bro";
+import AdminBroExpress from "@admin-bro/express";
+import AdminBroMongoose from "@admin-bro/mongoose";
+import bcrypt from "bcrypt";
+import productModels from "./product.js";
+import { isAdmin } from "./helpers.js";
+import { Banner } from "../models/banner.js";
+import { User } from "../models/user.js";
 
-AdminBro.registerAdapter(AdminBroMongoose)
-
-const isAdmin = ({ currentAdmin }) => currentAdmin && currentAdmin.role === 'admin'
+AdminBro.registerAdapter(AdminBroMongoose);
 
 const banner = {
   resource: Banner,
@@ -19,61 +18,20 @@ const banner = {
       new: { isAccessible: isAdmin },
     },
   },
-}
-
-const brand = {
-  resource: Brand,
-  options: {
-    actions: {
-      edit: { isAccessible: isAdmin },
-      delete: { isAccessible: isAdmin },
-      new: { isAccessible: isAdmin },
-    },
-  },
-}
-
-const product = {
-  resource: Product,
-  options: {
-    actions: {
-      edit: { isAccessible: isAdmin },
-      delete: { isAccessible: isAdmin },
-      new: { isAccessible: isAdmin },
-    },
-  },
-}
-
-const category = {
-  resource: Category,
-  options: {
-    actions: {
-      edit: { isAccessible: isAdmin },
-      delete: { isAccessible: isAdmin },
-      new: { isAccessible: isAdmin },
-    }
-  }
-}
-
-const categoryGroup = {
-  resource: CategoryGroup,
-  options: {
-    actions: {
-      edit: { isAccessible: isAdmin },
-      delete: { isAccessible: isAdmin },
-      new: { isAccessible: isAdmin },
-    }
-  }
-}
+};
 
 const user = {
-  resource: User,  
+  resource: User,
   options: {
     properties: {
       encryptedPassword: { isVisible: false },
       password: {
-        type: 'string',
+        type: "string",
         isVisible: {
-          list: false, edit: true, filter: false, show: false,
+          list: false,
+          edit: true,
+          filter: false,
+          show: false,
         },
       },
     },
@@ -83,11 +41,14 @@ const user = {
           if (request.payload.password) {
             request.payload = {
               ...request.payload,
-              encryptedPassword: await bcrypt.hash(request.payload.password, 10),
+              encryptedPassword: await bcrypt.hash(
+                request.payload.password,
+                10
+              ),
               password: undefined,
-            }
+            };
           }
-          return request
+          return request;
         },
         isAccessible: isAdmin,
       },
@@ -96,42 +57,45 @@ const user = {
           if (request.payload.password) {
             request.payload = {
               ...request.payload,
-              encryptedPassword: await bcrypt.hash(request.payload.password, 10),
+              encryptedPassword: await bcrypt.hash(
+                request.payload.password,
+                10
+              ),
               password: undefined,
-            }
+            };
           }
-          return request
+          return request;
         },
         isAccessible: isAdmin,
       },
       delete: { isAccessible: isAdmin },
-    }
-  }
-}
+    },
+  },
+};
 
 const options = {
-  resources: [banner, brand, product, category, categoryGroup, user],
-  rootPath: '/admin',
+  resources: [...productModels, banner, user],
+  rootPath: "/admin",
   branding: {
-    companyName: 'Unice',
-    logo: 'https://www.unice.com/skin/frontend/longqi/pc/images/unice-logo.png',
-  }
-}
+    companyName: "Unice",
+    logo: "https://www.unice.com/skin/frontend/longqi/pc/images/unice-logo.png",
+  },
+};
 
-export const adminBro = new AdminBro(options)
+export const adminBro = new AdminBro(options);
 
 export const router = AdminBroExpress.buildAuthenticatedRouter(adminBro, {
   authenticate: async (email, password) => {
-    const user = await User.findOne({ email })
+    const user = await User.findOne({ email });
 
-    if (!user || !user.encryptedPassword) return false
+    if (!user || !user.encryptedPassword) return false;
 
-    const match = await bcrypt.compare(password, user.encryptedPassword)
+    const match = await bcrypt.compare(password, user.encryptedPassword);
 
-    if (match) return user
+    if (match) return user;
 
-    return false
+    return false;
   },
-  cookieName: 'adminbro',
-  cookiePassword: 'session',
-})
+  cookieName: "adminbro",
+  cookiePassword: "session",
+});

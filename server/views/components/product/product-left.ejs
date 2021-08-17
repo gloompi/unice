@@ -1,0 +1,66 @@
+<div class="product-detail_left">
+  <div class="product-sticky-pointer"></div>
+  <div class="product-sticky-view">
+    <div class="product-detail_zoom clearfix">
+      <div class="product-detail_zoomImg">
+        <div class="product-detail_bigGallery">
+          <div class="product-detail_bigGallery-box">
+            <div class="product-detail_bigGallery-container">
+              <div class="swiper-wrapper product-swiper-wrapper">
+                <a href="JavaScript:;" class="swiper-slide img-block product-swiper-slide">
+                  <img
+                    class="img-zoom0 produc-main"
+                    src="<%= product.image %>"
+                    alt="<%= product.name %>"
+                    data-zoom-image="<%= product.image %>"
+                  />
+                </a>
+                <% product.images.forEach((image) => { %>
+                  <a href="JavaScript:;" class="swiper-slide img-block product-swiper-slide">
+                    <img
+                      class="img-zoom0 produc-main"
+                      src="<%= image %>"
+                      alt="<%= product.name %>"
+                      data-zoom-image="<%= image %>"
+                    />
+                  </a>
+                <% }) %>
+              </div>
+            </div>
+          <div class="swiper-button-next iconfont icon-xiangyou"></div>
+          <div class="swiper-button-prev iconfont icon-xiangzuo"></div>
+        </div>
+      </div>
+      <video id="my-video" class="product-detail_video" controls="controls" loop="loop">
+        <source src="https://vcdn.unice.com/zhutuvideo/626-Square-weft.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <div class="product-detail_smallGallery" id="smallGallery">
+      <div class="product-detail_smallGallery-box">
+        <div class="product-detail_smallGallery-container">
+          <div class="swiper-wrapper product-small-swiper-wrapper">
+            <a href="JavaScript:;" class="swiper-slide img-block product-swiper-slide">
+              <img
+                class="img-zoom0 produc-main"
+                src="<%= product.image %>"
+                alt="<%= product.name %>"
+                data-zoom-image="<%= product.image %>"
+              />
+            </a>
+            <% product.images.forEach((image) => { %>
+              <a href="JavaScript:;" class="swiper-slide img-block product-swiper-slide">
+                <img
+                  class="img-zoom0 produc-main"
+                  src="<%= image %>"
+                  alt="<%= product.name %>"
+                  data-zoom-image="<%= image %>"
+                />
+              </a>
+            <% }) %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
