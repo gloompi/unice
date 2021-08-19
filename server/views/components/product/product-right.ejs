@@ -2,7 +2,7 @@
 	<h1 class="product-detail_title">
     <%= product.name %><span class="product-detail_heart iconfont icon-heart1" product_id = "1935"> </span>
   </h1>
-	<div class="product-detail_rating">
+	<!-- <div class="product-detail_rating">
 		<div class="prolist_ratings-box">
 			<div class="rating-star iconfont icon-star">
 				<div class="rating-starNum iconfont icon-star" style="width: 95%;"></div>
@@ -11,11 +11,11 @@
     </div>
     <span class="separator"></span> <span></span>
 		<a class="product-detail_share iconfont icon-fenxiang" href="JavaScript:;" id="product-share"> <span>Share</span> </a>
-	</div>
+	</div> -->
 	<p class="product-detail_des">
 		<% product.description %>
 	</p>
-	<div class="clearfix">
+	<!-- <div class="clearfix">
 		<ul class='preferentInfo'>
 			<p></p>
 			<ul>
@@ -24,17 +24,17 @@
 				</li>
 			</ul>
 		</ul>
-	</div>
+	</div> -->
 	<form id="product-detail_form" action="" method="POST" autocomplete="off">
 		<input name="form_key" type="hidden" value="<esi:include src='http://www.unice.com/turpentine/esi/getFormKey/ttl/5184000/method/esi/scope/global/access/private/' />" />
 		<input type="hidden" name="product" value="1935" />
 		<div class="addCart_form-scroll">
 			<% if (product.color?.length) { %>
 				<div class="proDetail-option_title a-bold"> Color<i class="required">*</i> </div>
-				<ul class="proDetail-option_item inline-box color-card" data-required="true">
-					<% product.color.forEach(({ value }) => { %>
-						<li>
-              <input class="proDetail-option_input" name="options[Color]" id="option_<%= value %>" type="radio" value="<%= value %>" />
+				<ul class="product-option_list proDetail-option_item inline-box color-card" data-required="true">
+					<% product.color.forEach(({ additionalPrice, value }) => { %>
+						<li class="product-option_item">
+              <input class="proDetail-option_input" name="options[Color]" id="option_<%= value %>" type="radio" value="<%= value %>" data-price="<%= additionalPrice %>" />
               <label class="proDetail-option_label" for="option_<%= value %>"><%= value %></label>
             </li>
 					<% }) %>
@@ -42,53 +42,53 @@
 			<% } %>
       <% if (product.size?.length) { %>
         <div class="proDetail-option_title a-bold"> Size<i class="required">*</i> </div>
-        <div class="proDetail-option_item inline-box" data-required="true">
-          <% product.size.forEach(({ value }) => { %>
-            <li>
-              <input class="proDetail-option_input" name="options[Size]" id="option_<%= value %>" type="radio" value="<%= value %>" />
+        <ul class="product-option_list proDetail-option_item inline-box" data-required="true">
+          <% product.size.forEach(({ additionalPrice, value }) => { %>
+            <li class="product-option_item">
+              <input class="proDetail-option_input" name="options[Size]" id="option_<%= value %>" type="radio" value="<%= value %>" data-price="<%= additionalPrice %>" />
               <label class="proDetail-option_label" for="option_<%= value %>"><%= value %></label>
             </li>
           <% }) %>
-        </div>
+        </ul>
       <% } %>
       <% if (product.density?.length) { %>
         <div class="proDetail-option_title a-bold"> Density<i class="required">*</i> </div>
-        <div class="proDetail-option_item inline-box" data-required="true">
-          <% product.density.forEach(({ value }) => { %>
-            <li>
-              <input class="proDetail-option_input" name="options[Density]" id="option_<%= value %>" type="radio" value="<%= value %>" />
+        <ul class="product-option_list proDetail-option_item inline-box" data-required="true">
+          <% product.density.forEach(({ additionalPrice, value }) => { %>
+            <li class="product-option_item">
+              <input class="proDetail-option_input" name="options[Density]" id="option_<%= value %>" type="radio" value="<%= value %>" data-price="<%= additionalPrice %>" />
               <label class="proDetail-option_label" for="option_<%= value %>"><%= value %></label>
             </li>
           <% }) %>
-        </div>
+        </ul>
       <% } %>
       <% if (product.hairPart?.length) { %>
         <div class="proDetail-option_title a-bold"> Hair Part<i class="required">*</i> </div>
-        <div class="proDetail-option_item inline-box" data-required="true">
-          <% product.hairPart.forEach(({ value }) => { %>
-            <li>
-              <input class="proDetail-option_input" name="options[HairPart]" id="option_<%= value %>" type="radio" value="<%= value %>" />
+        <ul class="product-option_list proDetail-option_item inline-box" data-required="true">
+          <% product.hairPart.forEach(({ additionalPrice, value }) => { %>
+            <li class="product-option_item">
+              <input class="proDetail-option_input" name="options[HairPart]" id="option_<%= value %>" type="radio" value="<%= value %>" data-price="<%= additionalPrice %>" />
               <label class="proDetail-option_label" for="option_<%= value %>"><%= value %></label>
             </li>
           <% }) %>
-        </div>
+        </ul>
       <% } %>
       <% if (product.length?.length) { %>
         <div class="proDetail-option_title a-bold"> Hair Weft Length/inch<i class="required">*</i>
           <a class="proDetail-option_guide iconfont icon-size-guide-" href="JavaScript:;"> <span>Size Guide</span> </a>
         </div>
-        <div class="proDetail-option_item inline-box" data-required="true">
-          <% product.length.forEach(({ value }) => { %>
-            <li>
-              <input class="proDetail-option_input" name="options[Length]" id="option_<%= value %>" type="radio" value="<%= value %>" />
+        <ul class="product-option_list proDetail-option_item inline-box" data-required="true">
+          <% product.length.forEach(({ additionalPrice, value }) => { %>
+            <li class="product-option_item">
+              <input class="proDetail-option_input" name="options[Length]" id="option_<%= value %>" type="radio" value="<%= value %>" data-price="<%= additionalPrice %>"  />
               <label class="proDetail-option_label" for="option_<%= value %>"><%= value %></label>
             </li>
           <% }) %>
-        </div>
+        </ul>
       <% } %>
       <div class="total-price inline-box"> <span class="total-price_label">Total Price:</span>
         <div class="price-box"> <span class="price-box_price" id="product-price-1935">
-          <span class="price">$<%= product.price %></span> </span> <span class="price-box_unit">/ 1pcs</span>
+          <span id="product-total-price" class="price" data-price="<%= product.price %>">$<%= product.price %></span> </span> <span class="price-box_unit">/ 1pcs</span>
         </div>
       </div>
       <!-- <div class="block customerLink">
@@ -474,7 +474,7 @@
           <input class="product-detail_qty-num" type="number" id="product-detail_qty-num" name="qty" value="1" defaultvalue="1" maxlength="4" />
           <button class="product-detail_qty-add iconfont" type="button" style="font-size:24px;height: 44px;">+</button>
         </div>
-        <span> ( Sold: <span class="mainC"> 150662 </span> ) </span>
+        <!-- <span> ( Sold: <span class="mainC"> 150662 </span> ) </span> -->
       </div>
       <!--app专属价格 -->
       <!--end app专属价格 -->

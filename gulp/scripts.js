@@ -1,11 +1,11 @@
 import path from "path";
 import gulp from "gulp";
-import uglify from "gulp-uglify";
+import terser from "gulp-terser";
 
 import { __dirname } from "../config.js";
 
 export const buildScripts = () =>
   gulp
     .src(path.resolve(__dirname, "src/*.js"))
-    .pipe(uglify())
+    .pipe(terser())
     .pipe(gulp.dest(path.resolve(__dirname, "public")));
